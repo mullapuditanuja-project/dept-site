@@ -76,7 +76,7 @@
 <div id="content-area"></div>
 
 <script>
-/* ----------------- State ----------------- */
+
 let faculty = JSON.parse(localStorage.getItem("dept_faculty") || "[]");
 let achievements = JSON.parse(localStorage.getItem("dept_achievements") || "[]");
 let events = JSON.parse(localStorage.getItem("dept_events") || "[]");
@@ -97,7 +97,7 @@ function id() {
   return Date.now().toString(36) + Math.random().toString(36).slice(2);
 }
 
-/* ----------------- Tabs ----------------- */
+
 let currentTab = "dashboard";
 function switchTab(t) {
   currentTab = t;
@@ -126,7 +126,7 @@ function renderDashboard() {
   `;
 }
 
-/* ----------------- Faculty ----------------- */
+
 let editingFaculty = null;
 
 function renderFaculty() {
@@ -228,7 +228,7 @@ function resetFacultyForm() {
   renderFaculty();
 }
 
-/* ----------------- Content (Achievements / Events / Labs) ----------------- */
+
 function renderContent() {
   document.getElementById("content-area").innerHTML = `
     <div class="grid">
@@ -306,7 +306,7 @@ function addLab() {
 }
 function delLab(i) { labs = labs.filter(a=>a.id!==i); saveAll(); renderContent(); }
 
-/* ----------------- Gallery ----------------- */
+
 function renderGallery() {
   document.getElementById("content-area").innerHTML = `
     <div class="panel">
@@ -343,7 +343,7 @@ function delGallery(i) {
   saveAll(); renderGallery();
 }
 
-/* ----------------- Announcements ----------------- */
+
 function renderAnnouncements() {
   document.getElementById("content-area").innerHTML = `
     <div class="grid">
@@ -376,7 +376,7 @@ function addAnnouncement() {
 }
 function delAnnouncement(i) { announcements = announcements.filter(a=>a.id!==i); saveAll(); renderAnnouncements(); }
 
-/* ----------------- Preview + Publish ----------------- */
+
 function generateStaticHTML() {
   return `
 <!DOCTYPE html><html><head>
@@ -448,3 +448,4 @@ function downloadHTML() {
 
 </body>
 </html>
+
